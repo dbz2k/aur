@@ -9,3 +9,5 @@ RUN usermod -aG wheel builder
 RUN printf '%%wheel ALL=(ALL) NOPASSWD: ALL\n' | sudo tee -a /etc/sudoers >/dev/null
 # allow wheel group to use doas with no password
 RUN printf 'permit nopass :wheel\n' | sudo tee -a /etc/doas.conf >/dev/null
+# change the default user
+USER builder
